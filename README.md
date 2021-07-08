@@ -11,14 +11,17 @@ Key:Value
 紅色:草莓口味
 草莓:小熊軟糖
 紅色辣椒:綠色青椒
+啊:[del]
 ```
->Can use ":" or "：".
+>Can use ":" or "：".  
+>Key and value should not be "".  
+>Use [del] to replace key as "".
 
 ### input.txt
 ```
 This is my Key.
-我有一個紅色辣椒
-我還有紅色的草莓
+我有一個紅色辣椒啊
+我還有紅色的草莓啊
 ```
 ### output.txt
 ```

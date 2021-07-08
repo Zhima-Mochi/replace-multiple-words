@@ -161,7 +161,7 @@ int main(int argc, char **argv)
                     {
                         cur = match_cur - 1;
                     }
-                    if (value != L"")
+                    else if (value != L"")
                     {
                         outputFile << value;
                         cur = match_cur - 1;
