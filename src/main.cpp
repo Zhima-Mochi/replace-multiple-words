@@ -76,17 +76,18 @@ u32string utf8_string_to_code_point_string(const string &s);
 
 int main(int argc, char **argv)
 {
-    const char *map_filename("map.txt");
-    const char *input_filename("input.txt");
-    const char *output_filename("output.txt");
+    string folder_path = "/files/";
+    string map_filename(folder_path + "mapping.txt");
+    string input_filename(folder_path + "input.txt");
+    string output_filename(folder_path + "output.txt");
     switch (argc)
     {
     case 4:
-        output_filename = argv[3];
+        output_filename = folder_path + argv[3];
     case 3:
-        input_filename = argv[2];
+        input_filename = folder_path + argv[2];
     case 2:
-        map_filename = argv[1];
+        map_filename = folder_path + argv[1];
     case 1:
         std::cout << "Usage: transword <map file = " << map_filename << "> <input file = " << input_filename << "> <output file = " << output_filename << ">\n";
         break;
@@ -96,18 +97,19 @@ int main(int argc, char **argv)
 
     ifstream mapFile(map_filename);
     ifstream inputFile(input_filename);
-    ofstream outputFile(output_filename);
 
     if (!mapFile)
     {
-        std::cerr << "Failed to read map file";
+        std::cerr << "Failed to read mapping file" << '\n';
         return 1;
     }
     else if (!inputFile)
     {
-        std::cerr << "Failed to read input file";
+        std::cerr << "Failed to read input file" << '\n';
         return 1;
     }
+
+    ofstream outputFile(output_filename);
 
     Trie trie;
     trie.root = new TrieNode();
